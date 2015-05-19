@@ -1,0 +1,64 @@
+﻿<div class="page-header">
+    <h1>{{title}}</h1>
+</div>
+
+<h3>Selfmade</h3>
+<table class="table table-condensed table-bordered">
+    <thead>
+        <th>FlightId</th>
+        <th>DepartureDate</th>
+    </thead>
+    <tbody ng-repeat="matchContainer in matches">
+        <tr ng-click="matchContainer.collapsed=!matchContainer.collapsed">
+            <td>{{matchContainer.container.flightId}}</td>
+            <td>{{matchContainer.container.departureDateTime | date : 'dd-MM-yyyy'}}</td>
+        </tr>
+        <tr ng-hide="matchContainer.collapsed">
+            <td colspan="2">
+                <table class="table table-condensed">
+                    <tbody>
+                        <tr ng-repeat="match in matchContainer.container.matches">
+                            <td>{{match.givenName}}</td>
+                            <td>{{match.surname}}</td>
+                            <td>{{match.passengerId}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Smart-Table</h3>
+<table class="table table-condensed table-bordered" st-table="matches">
+    <thead>
+        <th st-sort="matchContainer.container.flightId">FlightId</th>
+        <th st-sort="matchContainer.container.departureDateTime">DepartureDate</th>
+    </thead>
+    <tbody ng-repeat="matchContainer in matches">
+        <tr ng-click="matchContainer.collapsed=!matchContainer.collapsed">
+            <td>{{matchContainer.container.flightId}}</td>
+            <td>{{matchContainer.container.departureDateTime | date : 'dd-MM-yyyy'}}</td>
+        </tr>
+        <tr ng-hide="matchContainer.collapsed">
+            <td colspan="2">
+                <table class="table table-condensed">
+                    <tbody>
+                        <tr ng-repeat="match in matchContainer.container.matches">
+                            <td>{{match.givenName}}</td>
+                            <td>{{match.surname}}</td>
+                            <td>{{match.passengerId}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+			<tr>
+				<td colspan="2" class="text-center">
+					<div st-pagination="" st-items-by-page="2" st-displayed-pages="7"></div>
+				</td>
+			</tr>
+		</tfoot>
+</table>
