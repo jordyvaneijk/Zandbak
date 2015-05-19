@@ -1,3 +1,3 @@
 ﻿'use strict';
 
-var app = angular.module('tripApp', ['ngRoute', 'smart-table']);
+var app = angular.module('tripApp', ['ngRoute', 'smart-table', 'ui.bootstrap']);

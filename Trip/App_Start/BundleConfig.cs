@@ -45,7 +45,9 @@ namespace Trip
             bundles.Add(new ScriptBundle("~/bundles/angular")
                 .Include("~/Scripts/angular.js")
                 .Include("~/Scripts/angular-route.js")
-                .Include("~/Scripts/smart-table.js"));
+                .Include("~/Scripts/smart-table.js")
+                .Include("~/Scripts/angular-ui/ui-bootstrap.js")
+                .Include("~/Scripts/angular-ui/ui-bootstrap-tpls.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/angularApp")
                 .Include("~/app/app.js")
